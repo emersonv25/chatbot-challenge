@@ -1,7 +1,6 @@
 ﻿using api_git.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,6 @@ namespace api_git.Controllers
             var response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                JArray jarray = JArray.Parse(response.Content);
                 string json = response.Content;
                 repository = JsonConvert.DeserializeObject<List<Repository>>(json);
                 repository = repository

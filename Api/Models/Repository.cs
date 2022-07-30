@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace api_git.Models
+﻿namespace api_git.Models
 {
     public class Repository
     {
