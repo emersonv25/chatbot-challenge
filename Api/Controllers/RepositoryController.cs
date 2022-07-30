@@ -14,7 +14,7 @@ namespace api_git.Controllers
     {
         // GET: api/<RepositoryController>
         [HttpGet]
-        public List<Repository> Get(string userLogin = "takenet", string sort = "created_at", int perPage = 5, string order = "asc", string language = "c#")
+        public List<Repository> Get(string userLogin = "takenet", string sort = "created_at", int per_page = 5, string order = "asc", string language = "c#")
         {
             List<Repository> repository = new List<Repository>();
             RestClient client = new RestClient("https://api.github.com");
@@ -26,7 +26,7 @@ namespace api_git.Controllers
                 repository = JsonConvert.DeserializeObject<List<Repository>>(json);
                 repository = repository
                     .Where(x => !string.IsNullOrWhiteSpace(x.language) && x.language.ToLower().Equals(language))
-                    .Take(perPage)
+                    .Take(per_page)
                     .ToList();
             }
             return repository;
